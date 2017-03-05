@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   def index
-    febreze_light
+    febreze_light(google_sheet)
   end
 
 end

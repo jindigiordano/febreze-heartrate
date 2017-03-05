@@ -1,8 +1,41 @@
 module ApplicationHelper
 
-  def febreze_light
+
+    def google_sheet
+      require 'uri'
+      require 'net/http'
+
+      url = URI("https://sheets.googleapis.com/v4/spreadsheets/1CU0AYzap4OMN0yieA5vA4zCdZvoy5sfKBprl16y2kUc/values/Sheet1!A1")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Get.new(url)
+      request["authorization"] = 'Bearer ya29.GlsFBCsm56P4qbPGVIKRDD5QYtmzyO3lJn-6qINfgMSpCZXAr0zzaXLKIfBrssWrZaI3x36w27QEOsgt8d4Zqhq0zS6AZkwkhAbpMrjIeAzGBH6h75FJV12amd9J'
+      request["content-type"] = 'application/json'
+      request["cache-control"] = 'no-cache'
+      puts request
+
+      response = http.request(request)
+      puts response.read_body
+      if JSON.parse(response.read_body)["values"]
+        p JSON.parse(response.read_body)["values"][0][0]
+      else
+        nil
+      end
+    end
+
+
+  def febreze_light(word)
     require 'uri'
     require 'net/http'
+
+    if word == 'theEvening'
+      light_num = 9
+    elsif word == nil
+      light_num = 1
+    end
 
     url = URI("https://na-hackathon-api.arrayent.io:443/v3/devices/33554441")
 
@@ -15,7 +48,7 @@ module ApplicationHelper
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     request["postman-token"] = 'a94141b7-bbe3-6e72-5602-591644b18d92'
-    request.body = "[{\"DeviceAction\": \"led_mode=1\" }, {\"DeviceAction\": \"led_color=0,2,4,4,4\" }]"
+    request.body = "[{\"DeviceAction\": \"led_mode=1\" }, {\"DeviceAction\": \"led_color=0,#{light_num},4,4,4\" }]"
 
     response = http.request(request)
     puts response.read_body
