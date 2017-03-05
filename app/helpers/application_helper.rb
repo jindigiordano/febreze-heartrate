@@ -56,7 +56,7 @@ module ApplicationHelper
   def google_sheet_night
     require 'uri'
     require 'net/http'
-    
+
     url = URI("https://sheets.googleapis.com/v4/spreadsheets/1DmI8wo2BHyU9loVf3NVh86dYd-SAnItNIy9-eiSULjI/values/Sheet1!A1")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -84,13 +84,13 @@ module ApplicationHelper
     require 'net/http'
 
     if word == 'theEvening'
-      light_num = 4
+      light_num = 2
     elsif word == 'myMorning'
-      light_num = 9
+      light_num = 4
     elsif word == 'myNight'
-      light_num = 11
+      light_num = 12
     elsif word == nil
-      light_num = 1
+      light_num = 14
     end
 
     url = URI("https://na-hackathon-api.arrayent.io:443/v3/devices/33554441")
