@@ -1,5 +1,5 @@
 module ApplicationHelper
-  let auth_token = "ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8"
+  auth_token = "ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8"
 
   def google_sheet_evening
     require 'uri'
