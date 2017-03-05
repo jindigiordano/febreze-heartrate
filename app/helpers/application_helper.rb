@@ -11,7 +11,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
+    request["authorization"] = 'Bearer ya29.GlsFBIWI3oDEPIeFOrPkZE5P7Q6CgM0uL7KgDI0eThCjxfgboP_0Dv7s0iMhVLFuOZKzVNtb-6eU0YUJvS_pKJo__R9vxvYBhqbeefIF_6gQqBcf1vZ26_hTHtv9'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
@@ -37,7 +37,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
+    request["authorization"] = 'Bearer ya29.GlsFBIWI3oDEPIeFOrPkZE5P7Q6CgM0uL7KgDI0eThCjxfgboP_0Dv7s0iMhVLFuOZKzVNtb-6eU0YUJvS_pKJo__R9vxvYBhqbeefIF_6gQqBcf1vZ26_hTHtv9'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
@@ -63,7 +63,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
+    request["authorization"] = 'Bearer ya29.GlsFBIWI3oDEPIeFOrPkZE5P7Q6CgM0uL7KgDI0eThCjxfgboP_0Dv7s0iMhVLFuOZKzVNtb-6eU0YUJvS_pKJo__R9vxvYBhqbeefIF_6gQqBcf1vZ26_hTHtv9'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
