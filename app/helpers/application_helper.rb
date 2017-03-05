@@ -1,6 +1,5 @@
 module ApplicationHelper
-  auth_token = "ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8"
-
+  
   def google_sheet_evening
     require 'uri'
     require 'net/http'
@@ -12,7 +11,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer #{auth_token}'
+    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
@@ -38,7 +37,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer #{auth_token}'
+    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
@@ -64,7 +63,7 @@ module ApplicationHelper
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer #{auth_token}'
+    request["authorization"] = 'Bearer ya29.GlsFBBCcrPbFE6COV6pKaCrncvWVMTVYJ1Xq5fYMA8QDImb0xzKp2v2iddxH0UDE_otWkqOzSpVqmoytjLIQ5urZYHj2SJ_QLEoVIxL3TEW5g4lviKBtjSb1aoj8'
     request["content-type"] = 'application/json'
     request["cache-control"] = 'no-cache'
     puts request
