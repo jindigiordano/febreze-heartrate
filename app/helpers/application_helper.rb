@@ -83,11 +83,11 @@ module ApplicationHelper
     require 'net/http'
 
     if word == 'theEvening'
-      light_num = 2
-    elsif word == 'myMorning'
-      light_num = 4
-    elsif word == 'myNight'
       light_num = 12
+    elsif word == 'myMorning'
+      light_num = 1
+    elsif word == 'myNight'
+      light_num = 2
     elsif word == nil
       light_num = 14
     end
