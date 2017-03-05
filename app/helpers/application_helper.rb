@@ -1,15 +1,57 @@
 module ApplicationHelper
 
-  require 'net/http'
 
-  def febreze_light
-    http = Net::HTTP.new("na-hackathon-api.arrayent.io:443")
+    def google_sheet
+      require 'uri'
+      require 'net/http'
 
-    request = Net::HTTP::Put.new("/v3/devices")
-    request.body = [{"DeviceAction": "led_mode=1" }, {"DeviceAction": "led_color=0,1,4,4,4" }].to_json
-    request['Authorization'] = "Bearer #{ENV['FEBREZE']}"
-    request['Content-Type'] = 'application/json'
+      url = URI("https://sheets.googleapis.com/v4/spreadsheets/1CU0AYzap4OMN0yieA5vA4zCdZvoy5sfKBprl16y2kUc/values/Sheet1!A1")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+      request = Net::HTTP::Get.new(url)
+      request["authorization"] = 'Bearer ya29.GlsFBCsm56P4qbPGVIKRDD5QYtmzyO3lJn-6qINfgMSpCZXAr0zzaXLKIfBrssWrZaI3x36w27QEOsgt8d4Zqhq0zS6AZkwkhAbpMrjIeAzGBH6h75FJV12amd9J'
+      request["content-type"] = 'application/json'
+      request["cache-control"] = 'no-cache'
+      puts request
+
+      response = http.request(request)
+      puts response.read_body
+      if JSON.parse(response.read_body)["values"]
+        p JSON.parse(response.read_body)["values"][0][0]
+      else
+        nil
+      end
+    end
+
+
+  def febreze_light(word)
+    require 'uri'
+    require 'net/http'
+
+    if word == 'theEvening'
+      light_num = 9
+    elsif word == nil
+      light_num = 1
+    end
+
+    url = URI("https://na-hackathon-api.arrayent.io:443/v3/devices/33554441")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Put.new(url)
+    request["authorization"] = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiI2MDU5ZTExMC0wMTFhLTExZTctOTIwNy1iNWMzYjY2M2Y2YTQiLCJlbnZpcm9ubWVudF9pZCI6Ijk0OGUyY2YwLWZkNTItMTFlNi1hZTQ2LTVmYzI0MDQyYTg1MyIsInVzZXJfaWQiOiI5MDAwMDg0Iiwic2NvcGVzIjoie30iLCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwiaWF0IjoxNDg4NjYzMzM0LCJleHAiOjE0ODk4NzI5MzR9.nJGTrEkQzNdx4f8FyMXkH3I7g7vh1AQ-cldkOv6HC_0JFjl3MC74vFgzk-wuSYw2r1MuYwI_uEbnKiDDTb65Fw'
+    request["content-type"] = 'application/json'
+    request["cache-control"] = 'no-cache'
+    request["postman-token"] = 'a94141b7-bbe3-6e72-5602-591644b18d92'
+    request.body = "[{\"DeviceAction\": \"led_mode=1\" }, {\"DeviceAction\": \"led_color=0,#{light_num},4,4,4\" }]"
+
     response = http.request(request)
+    puts response.read_body
   end
 
 end
