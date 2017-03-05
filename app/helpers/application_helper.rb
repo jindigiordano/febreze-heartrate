@@ -1,30 +1,82 @@
 module ApplicationHelper
 
 
-    def google_sheet
-      require 'uri'
-      require 'net/http'
+  def google_sheet_evening
+    require 'uri'
+    require 'net/http'
 
-      url = URI("https://sheets.googleapis.com/v4/spreadsheets/1CU0AYzap4OMN0yieA5vA4zCdZvoy5sfKBprl16y2kUc/values/Sheet1!A1")
+    url = URI("https://sheets.googleapis.com/v4/spreadsheets/1CU0AYzap4OMN0yieA5vA4zCdZvoy5sfKBprl16y2kUc/values/Sheet1!A1")
 
-      http = Net::HTTP.new(url.host, url.port)
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-      request = Net::HTTP::Get.new(url)
-      request["authorization"] = 'Bearer ya29.GlsFBCsm56P4qbPGVIKRDD5QYtmzyO3lJn-6qINfgMSpCZXAr0zzaXLKIfBrssWrZaI3x36w27QEOsgt8d4Zqhq0zS6AZkwkhAbpMrjIeAzGBH6h75FJV12amd9J'
-      request["content-type"] = 'application/json'
-      request["cache-control"] = 'no-cache'
-      puts request
+    request = Net::HTTP::Get.new(url)
+    request["authorization"] = 'Bearer ya29.GlsFBB4sRUM_FeyIIyZ4kt7ZGSQV1xyF5TJRkI4vv6pB3kANSUBE3Hfm94SuwK7z_ust8rUztNnhljVEDcQdrcHxG7eeQdV4ubhqZn4BkjPC4XPTxEJmr_67QA2m'
+    request["content-type"] = 'application/json'
+    request["cache-control"] = 'no-cache'
+    puts request
 
-      response = http.request(request)
-      puts response.read_body
-      if JSON.parse(response.read_body)["values"]
-        p JSON.parse(response.read_body)["values"][0][0]
-      else
-        nil
-      end
+    response = http.request(request)
+    puts response.read_body
+    if JSON.parse(response.read_body)["values"]
+      p JSON.parse(response.read_body)["values"][0][0]
+    else
+      nil
     end
+  end
+
+
+  def google_sheet_morning
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://sheets.googleapis.com/v4/spreadsheets/1HIXWAVU-DW23WorZqU5hV5aS2T6TM9ENpxlzGT2_N7A/values/Sheet1!A1")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["authorization"] = 'Bearer ya29.GlsFBB4sRUM_FeyIIyZ4kt7ZGSQV1xyF5TJRkI4vv6pB3kANSUBE3Hfm94SuwK7z_ust8rUztNnhljVEDcQdrcHxG7eeQdV4ubhqZn4BkjPC4XPTxEJmr_67QA2m'
+    request["content-type"] = 'application/json'
+    request["cache-control"] = 'no-cache'
+    puts request
+
+    response = http.request(request)
+    puts response.read_body
+    if JSON.parse(response.read_body)["values"]
+      p JSON.parse(response.read_body)["values"][0][0]
+    else
+      nil
+    end
+  end
+
+
+  def google_sheet_night
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("https://sheets.googleapis.com/v4/spreadsheets/1DmI8wo2BHyU9loVf3NVh86dYd-SAnItNIy9-eiSULjI/values/Sheet1!A1")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(url)
+    request["authorization"] = 'Bearer ya29.GlsFBB4sRUM_FeyIIyZ4kt7ZGSQV1xyF5TJRkI4vv6pB3kANSUBE3Hfm94SuwK7z_ust8rUztNnhljVEDcQdrcHxG7eeQdV4ubhqZn4BkjPC4XPTxEJmr_67QA2m'
+    request["content-type"] = 'application/json'
+    request["cache-control"] = 'no-cache'
+    puts request
+
+    response = http.request(request)
+    puts response.read_body
+    if JSON.parse(response.read_body)["values"]
+      p JSON.parse(response.read_body)["values"][0][0]
+    else
+      nil
+    end
+  end
 
 
   def febreze_light(word)
@@ -32,7 +84,11 @@ module ApplicationHelper
     require 'net/http'
 
     if word == 'theEvening'
+      light_num = 4
+    elsif word == 'myMorning'
       light_num = 9
+    elsif word == 'myNight'
+      light_num = 11
     elsif word == nil
       light_num = 1
     end

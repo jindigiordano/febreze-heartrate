@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   def index
-    febreze_light(google_sheet)
+    if google_sheet_evening
+      febreze_light(google_sheet_evening)
+    elsif google_sheet_morning
+      febreze_light(google_sheet_morning)
+    elsif google_sheet_night
+      febreze_light(google_sheet_night)
+    else
+      febreze_light(nil)
+    end
   end
 
 end
