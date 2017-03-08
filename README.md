@@ -13,8 +13,8 @@ A stress management app that integrates the Febreze Home smart air freshener wit
 # Team Members
 * [Jin Di Giordano](http://www.github.com/jindigiordano)
 * [Rashmee Prakash](http://www.github.com/rashmee)
-* [Neera Grover](https://www.linkedin.com/in/neera-grover-3615b618/)
-* [Carrie Gong](https://www.linkedin.com/in/gongcarrie)
+* [Neera Grover](https://www.github.com/neeragrover)
+* [Carrie Gong](https://www.github.com/cawahe)
 * [Mohsen Rezaei](http://www.github.com/mrezaei00)
 
 # Tools
