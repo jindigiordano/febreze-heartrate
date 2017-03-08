@@ -10,6 +10,9 @@ A stress management app that integrates the Febreze Home smart air freshener wit
 
 ## Video Demo: [https://youtu.be/YZ0JilsPAYM](https://youtu.be/YZ0JilsPAYM)
 
+![demo](https://github.com/jindigiordano/febreze-heartrate/blob/master/scentsational-demo.png)
+
+
 # Team Members
 * [Jin Di Giordano](http://www.github.com/jindigiordano)
 * [Rashmee Prakash](http://www.github.com/rashmee)
