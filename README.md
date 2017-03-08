@@ -8,7 +8,7 @@ A stress management app that integrates the Febreze Home smart air freshener wit
 
 ## Placed in the top 6 finalists.
 
-
+## Video Demo: [https://youtu.be/YZ0JilsPAYM](https://youtu.be/YZ0JilsPAYM)
 
 # Team Members
 * [Jin Di Giordano](http://www.github.com/jindigiordano)
